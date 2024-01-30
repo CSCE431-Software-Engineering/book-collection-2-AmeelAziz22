@@ -1,11 +1,15 @@
 <p style="color: green"><%= flash[:notice] %></p>
-<% flash[:notice] = nil %>
 
 <h1>Books</h1>
 
 <div id="books">
   <% @books.each do |book| %>
-    <%= render book %>
+    <div>
+      <strong>Title:</strong> <%= book.title %><br>
+      <strong>Author:</strong> <%= book.author %><br>
+      <strong>Price:</strong> <%= number_to_currency(book.price) %><br>
+      <strong>Published Date:</strong> <%= book.published_date %><br>
+    </div>
     <p>
       <%= link_to "Show Details", book %>
       <%= link_to "Edit", edit_book_path(book) %> |
