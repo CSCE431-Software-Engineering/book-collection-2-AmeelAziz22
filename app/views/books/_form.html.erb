@@ -1,3 +1,10 @@
+<%# Helper method for displaying errors %>
+<% def form_errors_for(record, attribute) %>
+  <% if record.errors[attribute].any? %>
+    <%= content_tag(:div, record.errors.full_messages_for(attribute).first, style: "color: red") %>
+  <% end %>
+<% end %>
+
 <%= form_with(model: book) do |form| %>
   <% if book.errors.any? %>
     <div style="color: red">
@@ -14,6 +21,25 @@
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
+    <%= form_errors_for(book, :title) %>
+  </div>
+
+  <div>
+    <%= form.label :author, style: "display: block" %>
+    <%= form.text_field :author %>
+    <%= form_errors_for(book, :author) %>
+  </div>
+
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+    <%= form_errors_for(book, :price) %>
+  </div>
+
+  <div>
+    <%= form.label :published_date, style: "display: block" %>
+    <%= form.date_field :published_date %>
+    <%= form_errors_for(book, :published_date) %>
   </div>
 
   <div>
