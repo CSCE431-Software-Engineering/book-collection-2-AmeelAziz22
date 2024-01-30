@@ -1,0 +1,14 @@
+<p style="color: green"><%= flash[:notice] %></p>
+    <% flash[:notice] = nil %>
+
+<%= render @book %>
+
+<div>
+<p>
+    <strong>ID:</strong> <%= @book.id %>
+  </p>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+
+  <%= button_to "Destroy this book", @book, method: :delete %>
+</div>

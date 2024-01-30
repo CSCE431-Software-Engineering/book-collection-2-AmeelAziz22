@@ -1,0 +1,10 @@
+<!-- app/views/books/confirm_delete.html.erb -->
+
+<h1>Confirm Deletion</h1>
+
+<p>Are you sure you want to delete this book?</p>
+
+<p><strong>Title:</strong> <%= @book.title %></p>
+
+<%= button_to "Destroy this book", @book, method: :delete %>
+<%= link_to "Back to Books", books_path %>
